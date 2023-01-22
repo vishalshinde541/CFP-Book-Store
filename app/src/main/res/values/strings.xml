@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Book Store</string>
+
+<!--    splash Activity-->
+    <string name="welcomeTxt">Welcome House of Books</string>
+    <string name="appName">ONLINE BOOK STORE</string>
 </resources>

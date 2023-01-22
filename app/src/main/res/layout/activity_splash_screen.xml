@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background2"
+    tools:context=".view.SplashScreenActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_appName"
+        android:text="@string/appName"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="70dp"
+        android:textColor="@android:color/holo_green_light"/>
+
+
+
+    <ImageView
+        android:id="@+id/IVmainLogo"
+        android:layout_below="@id/tv_appName"
+        android:layout_width="350dp"
+        android:layout_height="380dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/splash_icon"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_Welcometxt"
+        android:text="@string/welcomeTxt"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_below="@id/IVmainLogo"
+        android:layout_margin="25dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"/>
+
+</RelativeLayout>
