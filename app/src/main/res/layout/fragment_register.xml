@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/register_background"
+    tools:context=".view.RegisterFragment">
+
+<!--    <TextView-->
+<!--        android:id="@+id/register"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="40dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="@string/Register"-->
+<!--        android:textColor="@color/material_dynamic_neutral70"-->
+<!--        android:textSize="30dp"-->
+<!--        android:textStyle="bold" />-->
+
+    <ImageView
+        android:id="@+id/IVmainLogo"
+        android:layout_width="300dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="85dp"
+        android:src="@drawable/register_logo"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/IVmainLogo"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_send_to_mobile_24"
+        android:drawablePadding="15dp"
+        android:hint="@string/Email"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/firstname"
+        android:layout_below="@id/etEmail"
+        android:background="#30ffffff"
+        android:hint="@string/FName"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_margin="8dp"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"/>
+
+    <EditText
+        android:id="@+id/moNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstname"
+        android:layout_margin="8dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:hint="@string/mobileNo"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setpassword"
+        android:layout_below="@id/moNumber"
+        android:background="#30ffffff"
+        android:hint="@string/setPassword"
+        android:inputType="textPassword"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_margin="8dp"
+        android:padding="15dp"
+        android:drawableStart="@drawable/ic_baseline_info_24"
+        android:drawablePadding="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirmPassword"
+        android:layout_below="@id/setpassword"
+        android:background="#30ffffff"
+        android:hint="@string/confirmPassword"
+        android:inputType="textPassword"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:layout_margin="8dp"
+        android:padding="15dp"
+        android:drawableStart="@drawable/ic_baseline_info_24"
+        android:drawablePadding="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerBtn"
+        android:text="REGISTER"
+        android:layout_below="@id/confirmPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/teal_200"/>
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registerBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="@string/tvLogin"
+        android:textColor="@android:color/holo_blue_bright" />
+
+
+
+
+</RelativeLayout>
