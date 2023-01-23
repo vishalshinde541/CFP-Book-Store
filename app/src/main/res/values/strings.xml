@@ -29,5 +29,12 @@
     <string name="confirmPassword">confirm Password</string>
     <string name="tvLogin">Already have an account click here for login !</string>
 
+    <!-- Dialog Fragment -->
+    <string name="save_profileImg">click!! to save selected profile photo</string>
+
+    <!-- Fragment titel-->
+    <string name="home_title">Home</string>
+    <string name="cart_title">Cart</string>
+
 
 </resources>

@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
-    lateinit var drawerLayout: DrawerLayout
+//    lateinit var drawerLayout: DrawerLayout
     private lateinit var fAuth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
 
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.fragmentsContainer, fragment)
             fragmentTransaction.commit()
-            drawerLayout.closeDrawers()
+            binding.drawerLayout.closeDrawers()
             setTitle(title)
         }
 
@@ -81,25 +81,12 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
 
                 R.id.nav_home -> replaceFragment(HomeFragment(), it.title.toString())
-//                R.id.nav_reminders -> replaceFragment(RemindersFragment(), it.title.toString())
-//                R.id.nav_archive -> replaceFragment(ArchiveFragment(), it.title.toString())
-//                R.id.nav_setting -> replaceFragment(SettingFragment(), it.title.toString())
-//                R.id.nav_helpFeedback -> Toast.makeText(
-//                    applicationContext,
-//                    "clicked Help and feedback",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//                R.id.nav_logOut -> signOut()
-//                R.id.nav_share -> Toast.makeText(
-//                    applicationContext,
-//                    "clicked Share",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//                R.id.nav_rateus -> Toast.makeText(
-//                    applicationContext,
-//                    "clicked Rate us",
-//                    Toast.LENGTH_SHORT
-//                ).show()
+                R.id.nav_cart -> replaceFragment(UserCartFragment(), it.title.toString())
+                R.id.nav_setting -> Toast.makeText(applicationContext, "clicked on setting", Toast.LENGTH_SHORT).show()
+                R.id.nav_helpFeedback -> Toast.makeText(applicationContext, "clicked Help and feedback", Toast.LENGTH_SHORT).show()
+                R.id.nav_logOut -> signOut()
+                R.id.nav_share -> Toast.makeText(applicationContext, "clicked Share", Toast.LENGTH_SHORT).show()
+                R.id.nav_rateus -> Toast.makeText(applicationContext, "clicked Rate us", Toast.LENGTH_SHORT).show()
             }
             true
         }

@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.bookstore.R
+import com.example.bookstore.databinding.FragmentHomeBinding
 
 
 class UserCartFragment : Fragment() {
+
+    private var _binding : FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +24,13 @@ class UserCartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_cart, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = binding.root
+        (activity as MainActivity).supportActionBar?.setTitle(R.string.cart_title)
+
+
+
+        return view
     }
 
 

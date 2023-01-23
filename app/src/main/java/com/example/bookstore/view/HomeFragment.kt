@@ -1,33 +1,29 @@
 package com.example.bookstore.view
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import com.example.bookstore.R
+import com.example.bookstore.databinding.FragmentHomeBinding
+import com.example.bookstore.databinding.FragmentLoginBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var _binding : FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var db: FirebaseFirestore
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -35,26 +31,56 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = binding.root
+        (activity as MainActivity).supportActionBar?.setTitle(R.string.home_title)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.itemId) {
+            R.id.opt_cart -> {
+
+                val fragment = UserCartFragment()
+                val transaction = fragmentManager?.beginTransaction()
+                transaction?.replace(R.id.fragmentsContainer,fragment)?.commit()
+                transaction?.addToBackStack(null)
+                true
             }
+            R.id.opt_search -> {
+                Toast.makeText(requireContext(), "Clicked on search", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.homepage_opt_menu, menu)
+
+        val item = menu.findItem(R.id.opt_search)
+        val searchView = item?.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                return false
+            }
+
+        })
+
+        return super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
 }
