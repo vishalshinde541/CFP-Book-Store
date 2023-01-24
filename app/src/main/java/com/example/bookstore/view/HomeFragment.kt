@@ -31,7 +31,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -43,6 +43,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val view = binding.root
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
         (activity as MainActivity).supportActionBar?.setTitle(R.string.home_title)
+        (activity as MainActivity?)?.setDrawerUnlocked()
 
         firebaseAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -128,10 +129,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         })
 
         return super.onCreateOptionsMenu(menu, inflater)
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        (activity as MainActivity?)?.setDrawerUnlocked()
         _binding = null
     }
 

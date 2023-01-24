@@ -83,9 +83,10 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_margin="1dp"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:backgroundTint="@android:color/holo_green_light"
             android:textSize="8dp"
             android:text="BOOK ADDED TO CART"
+            android:textColor="@color/black"
             android:visibility="gone"/>
 
         <Button

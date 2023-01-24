@@ -29,10 +29,17 @@ class UserCartFragment : Fragment() {
         val view = binding.root
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
         (activity as MainActivity).supportActionBar?.setTitle(R.string.cart_title)
+        (activity as MainActivity?)?.setDrawerUnlocked()
 
 
 
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (activity as MainActivity?)?.setDrawerUnlocked()
+        _binding = null
     }
 
 

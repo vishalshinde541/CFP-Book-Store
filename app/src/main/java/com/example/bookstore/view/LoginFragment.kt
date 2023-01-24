@@ -44,6 +44,7 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+//        (activity as MainActivity?)?.setDrawerLocked()
 
         binding.forgotpass.setOnClickListener {
             val fragment = ResetPasswordFragment()
@@ -83,7 +84,8 @@ class LoginFragment : Fragment() {
             if (it.status) {
                 val fragment = HomeFragment()
                 val transaction = fragmentManager?.beginTransaction()
-                transaction?.replace(R.id.fragmentsContainer, fragment)?.commit()
+                transaction?.replace(R.id.fragmentsContainer, fragment)?.disallowAddToBackStack()
+                    ?.commit()
             } else {
                 binding.loginBtn.isEnabled = true
                 binding.loginBtn.alpha = 1.0f
@@ -122,6 +124,7 @@ class LoginFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        (activity as MainActivity?)?.setDrawerUnlocked()
         _binding = null
     }
 

@@ -6,16 +6,14 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.MenuItemCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.bookstore.R
 import com.example.bookstore.databinding.ActivityMainBinding
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavDrawerHandler {
 
     lateinit var toggle: ActionBarDrawerToggle
 //    lateinit var drawerLayout: DrawerLayout
@@ -83,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home -> replaceFragment(HomeFragment(), it.title.toString())
                 R.id.nav_cart -> replaceFragment(UserCartFragment(), it.title.toString())
                 R.id.nav_setting -> Toast.makeText(applicationContext, "clicked on setting", Toast.LENGTH_SHORT).show()
-                R.id.nav_helpFeedback -> Toast.makeText(applicationContext, "clicked Help and feedback", Toast.LENGTH_SHORT).show()
+                R.id.nav_wishlist -> Toast.makeText(applicationContext, "clicked Help and feedback", Toast.LENGTH_SHORT).show()
                 R.id.nav_logOut -> signOut()
                 R.id.nav_share -> Toast.makeText(applicationContext, "clicked Share", Toast.LENGTH_SHORT).show()
                 R.id.nav_rateus -> Toast.makeText(applicationContext, "clicked Rate us", Toast.LENGTH_SHORT).show()
@@ -124,5 +122,10 @@ class MainActivity : AppCompatActivity() {
         )
             toggle.syncState()
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun setDrawerLocked() {
+        super.setDrawerLocked()
+        binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
     }
 }

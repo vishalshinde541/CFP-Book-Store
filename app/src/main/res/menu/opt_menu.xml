@@ -9,11 +9,4 @@
         android:title="profile"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/opt_chart"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"
-        android:title="profile"
-        app:showAsAction="always" />
-
-
 </menu>

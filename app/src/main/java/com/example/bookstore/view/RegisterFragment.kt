@@ -41,6 +41,7 @@ class RegisterFragment : Fragment() {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         val view = binding.root
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+        (activity as MainActivity?)?.setDrawerLocked()
 
        binding.tvLogin.setOnClickListener {
             val fragment = LoginFragment()
@@ -139,6 +140,7 @@ class RegisterFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        (activity as MainActivity?)?.setDrawerUnlocked()
         _binding = null
     }
 
