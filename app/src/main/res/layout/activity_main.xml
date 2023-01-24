@@ -27,7 +27,7 @@
                 android:id="@+id/toolbar"
                 app:title="@string/nav_Title"
                 app:titleTextColor="@color/white"
-                android:background="@color/purple_500">
+                android:background="@android:color/holo_red_light">
 
             </androidx.appcompat.widget.Toolbar>
 

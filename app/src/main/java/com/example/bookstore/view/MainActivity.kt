@@ -91,7 +91,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
     }
 
     private fun addFragment() {

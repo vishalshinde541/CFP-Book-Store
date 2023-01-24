@@ -4,22 +4,30 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.bookstore.R
 import com.example.bookstore.databinding.FragmentHomeBinding
-import com.example.bookstore.databinding.FragmentLoginBinding
+import com.example.bookstore.mode.Book
+import com.example.bookstore.mode.BookAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private var _binding : FragmentHomeBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var recyclerView: RecyclerView
     private lateinit var db: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var bookList: ArrayList<Book>
+    private lateinit var tempArrayList: ArrayList<Book>
+    lateinit var book: Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,14 +41,54 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
+        (requireActivity() as AppCompatActivity).supportActionBar?.show()
         (activity as MainActivity).supportActionBar?.setTitle(R.string.home_title)
 
         firebaseAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
+        recyclerView = view.findViewById(R.id.recycler_home)
+//        val gridlayout = GridLayoutManager(context, GridLayoutManager.VERTICAL)
+//        recyclerView.layoutManager = gridlayout
+        val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = staggeredGridLayoutManager
 
+        bookList = arrayListOf<Book>()
+        tempArrayList = arrayListOf<Book>()
 
+        retrievNotesFromFirestoreAndStoreToNoteList()
 
         return view
+    }
+
+    fun retrievNotesFromFirestoreAndStoreToNoteList() {
+
+        db.collection("books")
+            .get().addOnCompleteListener {
+                var notlistFromFirebase: ArrayList<Book> = arrayListOf<Book>()
+                if (it.isSuccessful) {
+                    for (document in it.result) {
+                        val allBooks: Book = Book(
+                            document["bookId"].toString(),
+                            document["imageUrl"].toString(),
+                            document["bookTitle"].toString(),
+                            document["author"].toString(),
+                            document["price"].toString()
+                        )
+                        bookList.add(allBooks)
+
+                    }
+
+
+                    tempArrayList.addAll(bookList)
+
+                    recyclerView.adapter = BookAdapter(requireContext(), tempArrayList)
+                }
+
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+            }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -50,7 +98,7 @@ class HomeFragment : Fragment() {
 
                 val fragment = UserCartFragment()
                 val transaction = fragmentManager?.beginTransaction()
-                transaction?.replace(R.id.fragmentsContainer,fragment)?.commit()
+                transaction?.replace(R.id.fragmentsContainer, fragment)?.commit()
                 transaction?.addToBackStack(null)
                 true
             }
@@ -80,6 +128,11 @@ class HomeFragment : Fragment() {
         })
 
         return super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 
