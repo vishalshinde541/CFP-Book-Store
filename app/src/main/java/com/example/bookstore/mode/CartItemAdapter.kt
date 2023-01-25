@@ -33,9 +33,13 @@ class CartItemAdapter(private val context: Context, private val cartBookList : A
         val bookTitle : TextView = itemView.findViewById(R.id.tv_booktitle_CV)
         val auther: TextView = itemView.findViewById(R.id.tv_authername_CV)
         val price: TextView = itemView.findViewById(R.id.tv_price_CV)
+        val incrementBtn: TextView = itemView.findViewById(R.id.increase)
+        val qtyText: TextView = itemView.findViewById(R.id.integer_number)
+        val decrementBtn: Button = itemView.findViewById(R.id.decrease)
         val removeFromCartBtn: Button = itemView.findViewById(R.id.removeBook_CV)
         val placeOrderBtn: Button = itemView.findViewById(R.id.placeOrder_CV)
         var cartBookId: String = ""
+
 
     }
 
@@ -50,6 +54,14 @@ class CartItemAdapter(private val context: Context, private val cartBookList : A
         holder.auther.text = cartBookList[position].author
         holder.price.text = cartBookList[position].price
         holder.cartBookId = cartBookList[position].bookId
+
+        holder.incrementBtn.setOnClickListener {
+            Toast.makeText(context, "increment clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.decrementBtn.setOnClickListener {
+            Toast.makeText(context, "decrement clicked", Toast.LENGTH_SHORT).show()
+        }
 
         holder.removeFromCartBtn.setOnClickListener {
             database.collection("user").document(firebaseAuth.currentUser!!.uid)

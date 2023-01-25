@@ -40,6 +40,7 @@ class BookAdapter(private val context: Context, private val booklist: ArrayList<
         val wishlistBtn: Button = itemView.findViewById(R.id.wishlistBtn)
         val addedToCartBtn: Button = itemView.findViewById(R.id.addedToCartBtn)
 
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -53,6 +54,8 @@ class BookAdapter(private val context: Context, private val booklist: ArrayList<
         holder.bookTitle.text = booklist[position].bookTitle
         holder.auther.text = booklist[position].author
         holder.price.text = booklist[position].price
+
+
 
         holder.addToCartBtn.setOnClickListener {
 
