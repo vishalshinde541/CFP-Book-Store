@@ -123,13 +123,36 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             override fun onQueryTextChange(newText: String?): Boolean {
 
+                tempArrayList.clear()
+                val searchText = newText!!.lowercase(Locale.getDefault())
+                if (searchText.isNotEmpty()) {
+
+                    bookList.forEach {
+                        if (it.bookTitle?.lowercase(Locale.getDefault())
+                                ?.contains(searchText) == true ||
+                            it.author?.lowercase(Locale.getDefault())
+                                ?.contains(searchText) == true ||
+                            it.price?.lowercase(Locale.getDefault())
+                                ?.contains(searchText) == true
+                        ) {
+
+                            tempArrayList.add(it)
+                        }
+                    }
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                } else {
+
+                    tempArrayList.clear()
+                    tempArrayList.addAll(bookList)
+                    recyclerView.adapter!!.notifyDataSetChanged()
+                }
+
                 return false
             }
 
         })
 
         return super.onCreateOptionsMenu(menu, inflater)
-
     }
 
     override fun onDestroyView() {
