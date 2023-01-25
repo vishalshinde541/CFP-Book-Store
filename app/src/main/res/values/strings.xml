@@ -35,6 +35,8 @@
     <!-- Fragment titel-->
     <string name="home_title">Book Store</string>
     <string name="cart_title">My Cart</string>
+    <string name="search">Search</string>
+    <string name="cart">Cart</string>
 
 
 </resources>

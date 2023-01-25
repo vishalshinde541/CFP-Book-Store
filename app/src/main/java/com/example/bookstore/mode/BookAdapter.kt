@@ -9,9 +9,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bookstore.R
+import com.example.bookstore.view.UserCartFragment
+import com.example.bookstore.view.UserNotLogedInDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -52,36 +55,55 @@ class BookAdapter(private val context: Context, private val booklist: ArrayList<
         holder.price.text = booklist[position].price
 
         holder.addToCartBtn.setOnClickListener {
-            holder.wishlistBtn.visibility = View.GONE
-            holder.addToCartBtn.visibility = View.GONE
-            holder.addedToCartBtn.visibility = View.VISIBLE
-            // And NEED TO SAVE THAT CHANGED VISIBILITY OF BUTTONS
-            val cartBookId = database.collection("user").document(firebaseAuth.currentUser?.uid!!)
-                .collection("cartItems").document().id
 
-            val userCart = UserCart(
-                booklist[position].bookId,
-                booklist[position].imageUrl,
-                booklist[position].bookTitle,
-                booklist[position].author,
-                booklist[position].price
-            )
+            val currentUser = firebaseAuth.currentUser
+            if (currentUser != null) {
+                holder.wishlistBtn.visibility = View.GONE
+                holder.addToCartBtn.visibility = View.GONE
+                holder.addedToCartBtn.visibility = View.VISIBLE
+           // And NEED TO SAVE THAT CHANGED VISIBILITY OF BUTTONS
+                val userCart = UserCart(
+                    booklist[position].bookId,
+                    booklist[position].imageUrl,
+                    booklist[position].bookTitle,
+                    booklist[position].author,
+                    booklist[position].price
+                )
+                val cartBookId = booklist[position].bookId
 
-            val bookMap = hashMapOf(
-                "bookId" to userCart.bookId,
-                "imageUrl" to userCart.imageUrl,
-                "bookTitle" to userCart.bookTitle,
-                "author" to userCart.author,
-                "price" to userCart.price,
-                "cartId" to cartBookId
-            )
+                val bookMap = hashMapOf(
+                    "bookId" to userCart.bookId,
+                    "imageUrl" to userCart.imageUrl,
+                    "bookTitle" to userCart.bookTitle,
+                    "author" to userCart.author,
+                    "price" to userCart.price,
+                    "cartId" to cartBookId
+                )
 
-            addToCart(cartBookId, bookMap)
+                addToCart(cartBookId, bookMap)
+            } else {
+
+                val appCompatActivity = context as AppCompatActivity
+                val fragment = appCompatActivity.supportFragmentManager
+                val newFragment = UserNotLogedInDialogFragment()
+                newFragment.show(fragment, "look")
+
+            }
 
         }
 
         holder.wishlistBtn.setOnClickListener {
-            holder.wishlistBtn.setBackgroundColor(Color.YELLOW)
+
+            val currentUser = firebaseAuth.currentUser
+            if (currentUser != null) {
+                holder.wishlistBtn.setBackgroundColor(Color.YELLOW)
+            } else {
+                val appCompatActivity = context as AppCompatActivity
+                val fragment = appCompatActivity.supportFragmentManager
+                val newFragment = UserNotLogedInDialogFragment()
+                newFragment.show(fragment, "look")
+            }
+
         }
     }
 

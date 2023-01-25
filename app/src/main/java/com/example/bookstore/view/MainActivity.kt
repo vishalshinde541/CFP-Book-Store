@@ -27,19 +27,19 @@ class MainActivity : AppCompatActivity(), NavDrawerHandler {
 
         fAuth = FirebaseAuth.getInstance()
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentsContainer, LoginFragment())
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentsContainer, HomeFragment())
             .commit()
 
-        val currentUser = fAuth.currentUser
-        if (currentUser != null) {
-            val addToBackStack = supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentsContainer, HomeFragment()).addToBackStack(null)
-                .commit()
-        } else {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.fragmentsContainer, LoginFragment())
-                .commit()
-        }
+//        val currentUser = fAuth.currentUser
+//        if (currentUser != null) {
+//            val addToBackStack = supportFragmentManager.beginTransaction()
+//                .replace(R.id.fragmentsContainer, HomeFragment()).addToBackStack(null)
+//                .commit()
+//        } else {
+//            supportFragmentManager.beginTransaction()
+//                .add(R.id.fragmentsContainer, LoginFragment())
+//                .commit()
+//        }
 
 
         // Navigation Drawer
@@ -68,10 +68,17 @@ class MainActivity : AppCompatActivity(), NavDrawerHandler {
         }
 
         fun signOut() {
-            fAuth.signOut()
-            replaceFragment(LoginFragment(), title.toString())
-        }
 
+            val currentUser = fAuth.currentUser
+            if (currentUser != null) {
+                fAuth.signOut()
+                replaceFragment(LoginFragment(), title.toString())
+            } else {
+                Toast.makeText(applicationContext, "YOU ARE NOTE LOGGED IN", Toast.LENGTH_SHORT).show()
+            }
+
+
+        }
 
 
         binding.navView.setNavigationItemSelectedListener {
@@ -79,7 +86,6 @@ class MainActivity : AppCompatActivity(), NavDrawerHandler {
             when (it.itemId) {
 
                 R.id.nav_home -> replaceFragment(HomeFragment(), it.title.toString())
-                R.id.nav_cart -> replaceFragment(UserCartFragment(), it.title.toString())
                 R.id.nav_setting -> Toast.makeText(applicationContext, "clicked on setting", Toast.LENGTH_SHORT).show()
                 R.id.nav_wishlist -> Toast.makeText(applicationContext, "clicked Help and feedback", Toast.LENGTH_SHORT).show()
                 R.id.nav_logOut -> signOut()
@@ -113,9 +119,20 @@ class MainActivity : AppCompatActivity(), NavDrawerHandler {
             return when (item.itemId) {
 
                 R.id.opt_profile_Image -> {
-                    addFragment()
-                    Toast.makeText(this, "Clicked on profile", Toast.LENGTH_SHORT).show()
-                    true
+
+                    val currentUser = fAuth.currentUser
+                    if (currentUser != null) {
+                        addFragment()
+                        Toast.makeText(this, "Clicked on profile", Toast.LENGTH_SHORT).show()
+                        true
+                    } else {
+                        val fragmentManager = supportFragmentManager
+                        val dialogProfileFragment = UserNotLogedInDialogFragment()
+                        dialogProfileFragment.show(fragmentManager, "dialogProfile")
+                        true
+                    }
+
+
                 }
                 else -> return super.onOptionsItemSelected(item)
             }

@@ -2,6 +2,7 @@ package com.example.bookstore.view
 
 import android.os.Bundle
 import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var bookList: ArrayList<Book>
     private lateinit var tempArrayList: ArrayList<Book>
     lateinit var book: Array<String>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,13 +97,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when (item.itemId) {
-            R.id.opt_cart -> {
 
-                val fragment = UserCartFragment()
-                val transaction = fragmentManager?.beginTransaction()
-                transaction?.replace(R.id.fragmentsContainer, fragment)?.commit()
-                transaction?.addToBackStack(null)
-                true
+            R.id.opt_cart -> {
+                val currentUser = firebaseAuth.currentUser
+                if (currentUser != null) {
+                    val fragment = UserCartFragment()
+                    val transaction = fragmentManager?.beginTransaction()
+                    transaction?.replace(R.id.fragmentsContainer, fragment)?.commit()
+                    transaction?.addToBackStack(null)
+                    true
+                } else {
+
+                    val fragmentManager = fragmentManager
+                    val newFragment = UserNotLogedInDialogFragment()
+                    newFragment.show(fragmentManager!!, "look")
+                    true
+
+                }
+
             }
             R.id.opt_search -> {
                 Toast.makeText(requireContext(), "Clicked on search", Toast.LENGTH_SHORT).show()

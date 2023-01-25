@@ -6,5 +6,4 @@ data class UserCart(
     var bookTitle: String = "",
     var author: String = "",
     var price: String = "",
-    var cartId: String = ""
 )

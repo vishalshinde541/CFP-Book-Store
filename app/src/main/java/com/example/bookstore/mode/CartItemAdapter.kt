@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bookstore.R
@@ -34,6 +35,7 @@ class CartItemAdapter(private val context: Context, private val cartBookList : A
         val price: TextView = itemView.findViewById(R.id.tv_price_CV)
         val removeFromCartBtn: Button = itemView.findViewById(R.id.removeBook_CV)
         val placeOrderBtn: Button = itemView.findViewById(R.id.placeOrder_CV)
+        var cartBookId: String = ""
 
     }
 
@@ -47,6 +49,31 @@ class CartItemAdapter(private val context: Context, private val cartBookList : A
         holder.bookTitle.text = cartBookList[position].bookTitle
         holder.auther.text = cartBookList[position].author
         holder.price.text = cartBookList[position].price
+        holder.cartBookId = cartBookList[position].bookId
+
+        holder.removeFromCartBtn.setOnClickListener {
+            database.collection("user").document(firebaseAuth.currentUser!!.uid)
+                .collection("cartItems").document(holder.cartBookId).delete()
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        bookFilterList.remove(cartBookList[position])
+                        notifyDataSetChanged()
+                        Toast.makeText(
+                            context,
+                            "Item removed from Cart",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "Error while removing",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+        }
     }
 
     override fun getItemCount(): Int {

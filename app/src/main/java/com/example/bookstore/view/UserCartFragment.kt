@@ -27,6 +27,7 @@ class UserCartFragment : Fragment() {
     private lateinit var bookList: ArrayList<UserCart>
     private lateinit var tempArrayList: ArrayList<UserCart>
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -59,7 +60,7 @@ class UserCartFragment : Fragment() {
 
     fun retrievBooksFromFirestoreAndStoreToBookList() {
 
-        db.collection("user").document(firebaseAuth.currentUser!!.uid).collection("cartItems")
+        db.collection("user").document(firebaseAuth.currentUser?.uid!!).collection("cartItems")
             .get().addOnCompleteListener {
 
                 if (it.isSuccessful) {
@@ -69,8 +70,7 @@ class UserCartFragment : Fragment() {
                             document["imageUrl"].toString(),
                             document["bookTitle"].toString(),
                             document["author"].toString(),
-                            document["price"].toString(),
-                            document["cardId"].toString()
+                            document["price"].toString()
                         )
                         bookList.add(cartBooks)
 
