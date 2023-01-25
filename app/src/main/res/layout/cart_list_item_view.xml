@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/book_container_CV"
-    android:backgroundTint="#F1DCD1"
+    android:backgroundTint="#EFC1A9"
     android:layout_margin="8dp"
     android:elevation="8dp"
     app:cardCornerRadius="6dp">
@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/iv_book_CV"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
@@ -66,29 +66,33 @@
 
 
             <Button
+                android:id="@+id/removeBook_CV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/addToCartBtn"
                 android:layout_below="@+id/iv_book_CV"
-
-                android:layout_margin="4dp"
-                android:backgroundTint="#F1DCD1"
-                android:textSize="10dp"
-                android:textColor="@color/black"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:backgroundTint="@color/white"
                 android:text="Remove"
-                />
+                android:textColor="@color/black"
+                android:textSize="10dp" />
 
             <Button
+                android:id="@+id/placeOrder_CV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/wishlistBtn"
                 android:layout_below="@+id/iv_book_CV"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="4dp"
-                android:textColor="@color/black"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
                 android:backgroundTint="@color/teal_200"
-                android:textSize="10dp"
-                android:text="PLACE ORDER " />
+                android:text="PLACE ORDER "
+                android:textColor="@color/black"
+                android:textSize="10dp" />
 
 
     </RelativeLayout>

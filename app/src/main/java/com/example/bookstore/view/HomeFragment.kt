@@ -56,16 +56,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         bookList = arrayListOf<Book>()
         tempArrayList = arrayListOf<Book>()
 
-        retrievNotesFromFirestoreAndStoreToNoteList()
+        retrievBooksFromFirestoreAndStoreToBookList()
 
         return view
     }
 
-    fun retrievNotesFromFirestoreAndStoreToNoteList() {
+    fun retrievBooksFromFirestoreAndStoreToBookList() {
 
         db.collection("books")
             .get().addOnCompleteListener {
-                var notlistFromFirebase: ArrayList<Book> = arrayListOf<Book>()
+
                 if (it.isSuccessful) {
                     for (document in it.result) {
                         val allBooks: Book = Book(

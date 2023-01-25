@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/book_container"
-    android:backgroundTint="#F1DCD1"
+    android:backgroundTint="#F6CEB9"
     android:layout_margin="8dp"
     android:elevation="8dp"
     app:cardCornerRadius="6dp">
