@@ -8,9 +8,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bookstore.R
+import com.example.bookstore.view.CustomerDetailsFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -61,6 +63,15 @@ class CartItemAdapter(private val context: Context, private val cartBookList : A
 
         holder.decrementBtn.setOnClickListener {
             Toast.makeText(context, "decrement clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.placeOrderBtn.setOnClickListener {
+            val appCompatActivity = context as AppCompatActivity
+            val fragment = CustomerDetailsFragment()
+            appCompatActivity.supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentsContainer, fragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         holder.removeFromCartBtn.setOnClickListener {

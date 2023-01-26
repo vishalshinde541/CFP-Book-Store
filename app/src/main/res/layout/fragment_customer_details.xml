@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CustomerDetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TitleBarLayout"
+        android:background="@color/red">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/page_title"
+            android:textColor="@color/white"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:text="@string/customerdetail_title"
+            android:textSize="20dp" />
+
+
+        <ImageButton
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:id="@+id/backBtn"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:layout_marginTop="12dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/TitleBarLayout"
+        android:layout_margin="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/ship_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Full Name"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/ET_name_ship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ship_name"
+            android:background="@color/redbackground"
+            android:drawableLeft="@drawable/ic_baseline_person_pin_24"
+            android:drawablePadding="10dp"
+            android:hint="Enter full name"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/red" />
+
+        <TextView
+            android:id="@+id/ship_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ET_name_ship"
+            android:layout_marginTop="20dp"
+            android:text="Email address"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/ET_email_ship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ship_email"
+            android:background="@color/redbackground"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:drawablePadding="10dp"
+            android:hint="Enter Email"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/red" />
+
+        <TextView
+            android:id="@+id/ship_mobileNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ET_email_ship"
+            android:layout_marginTop="20dp"
+            android:text="Mobile number"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/ET_mobileNo_ship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ship_mobileNo"
+            android:background="@color/redbackground"
+            android:drawableLeft="@drawable/ic_baseline_mobile_friendly_24"
+            android:drawablePadding="10dp"
+            android:hint="Enter 10 digit mobile number"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/red" />
+
+        <TextView
+            android:id="@+id/ship_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ET_mobileNo_ship"
+            android:layout_marginTop="20dp"
+            android:text="Address"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/ET_address_ship"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/ship_address"
+            android:background="@color/redbackground"
+            android:drawableLeft="@drawable/ic_baseline_home_work_24"
+            android:drawablePadding="10dp"
+            android:hint="Enter Address"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/red" />
+
+        <LinearLayout
+            android:id="@+id/city_town_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ET_address_ship"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ship_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:text="City/Town"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/ship_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:text="State"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/city_town_ll"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ET_city_ship"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/redbackground"
+                android:drawableLeft="@drawable/ic_baseline_location_city_24"
+                android:drawablePadding="10dp"
+                android:hint="Enter City/Town"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/red" />
+
+            <EditText
+                android:id="@+id/ET_state_ship"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/redbackground"
+                android:drawableLeft="@drawable/ic_baseline_location_city_24"
+                android:drawablePadding="10dp"
+                android:hint="Enter City/Town"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/red" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ship_pin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/city_town_ll"
+            android:layout_marginTop="60dp"
+            android:text="Pin code"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/ET_pincode_ship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ship_pin"
+            android:background="@color/redbackground"
+            android:drawableLeft="@drawable/ic_baseline_home_work_24"
+            android:drawablePadding="10dp"
+            android:hint="Pin code"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/red" />
+
+
+        <Button
+            android:id="@+id/ContinueBtn_ship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="@color/red"
+            android:text="CONTINUE" />
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>

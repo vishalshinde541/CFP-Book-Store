@@ -38,5 +38,11 @@
     <string name="search">Search</string>
     <string name="cart">Cart</string>
 
+    <!-- Customer details Fragment -->
+    <string name="customerdetail_title">Shipping Details</string>
+
+    <!-- Order Summery Fragment -->
+    <string name="title_OrdersSummery">Order Summery</string>
+
 
 </resources>

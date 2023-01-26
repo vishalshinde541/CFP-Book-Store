@@ -44,7 +44,7 @@ class LoginFragment : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
-//        (activity as MainActivity?)?.setDrawerLocked()
+        (activity as MainActivity?)?.setDrawerLocked()
 
         binding.forgotpass.setOnClickListener {
             val fragment = ResetPasswordFragment()
@@ -76,7 +76,6 @@ class LoginFragment : Fragment() {
         var user = User(
             email = binding.loginUsername.text.toString(),
             password = binding.loginPassword.text.toString()
-
         )
         loginViewModel.loginUser(user)
         loginViewModel._userLoginStatus.observe(viewLifecycleOwner, Observer {

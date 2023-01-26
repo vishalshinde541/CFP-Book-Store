@@ -140,7 +140,7 @@ class RegisterFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        (activity as MainActivity?)?.setDrawerUnlocked()
+
         _binding = null
     }
 

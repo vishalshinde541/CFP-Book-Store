@@ -42,6 +42,7 @@ class UserCartFragment : Fragment() {
         val view = binding.root
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
         (activity as MainActivity).supportActionBar?.setTitle(R.string.cart_title)
+        (activity as MainActivity?)?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as MainActivity?)?.setDrawerUnlocked()
 
         firebaseAuth = FirebaseAuth.getInstance()

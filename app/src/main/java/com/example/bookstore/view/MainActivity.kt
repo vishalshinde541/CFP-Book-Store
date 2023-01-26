@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity(), NavDrawerHandler {
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
         fun replaceFragment(fragment: Fragment, title: String) {
 
             val fragmentManager = supportFragmentManager

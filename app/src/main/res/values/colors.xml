@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="wishlistColour">#F2A9F4</color>
     <color name="badge">#E3EA12</color>
+    <color name="red">#F84E3F</color>
+    <color name="redbackground">#CAE1DC</color>
 </resources>

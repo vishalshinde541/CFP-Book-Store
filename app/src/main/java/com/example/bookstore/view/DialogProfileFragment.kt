@@ -144,5 +144,10 @@ class DialogProfileFragment : DialogFragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (activity as MainActivity?)?.setDrawerUnlocked()
+        _binding = null
+    }
 
 }
