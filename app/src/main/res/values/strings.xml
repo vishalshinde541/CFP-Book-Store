@@ -44,5 +44,9 @@
     <!-- Order Summery Fragment -->
     <string name="title_OrdersSummery">Order Summery</string>
 
+    <!-- Id for get user shipping details -->
+    <string name="shippingDetailsId">PermanentShippingAddress</string>
+
+
 
 </resources>

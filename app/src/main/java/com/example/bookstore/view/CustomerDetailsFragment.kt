@@ -30,6 +30,7 @@ class CustomerDetailsFragment : Fragment() {
     private lateinit var city: EditText
     private lateinit var state: EditText
     private lateinit var pincod: EditText
+    private lateinit var bookId : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,13 @@ class CustomerDetailsFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 //        (activity as MainActivity?)?.setDrawerLocked()
         (activity as MainActivity).supportActionBar?.setTitle(R.string.customerdetail_title)
+
+
+        // Receiving data(BookId) from adapter using Bundle
+        val bundle = arguments
+        if (bundle != null) {
+            bookId = bundle.getString("BookId").toString()
+        }
 
         firebaseAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -109,9 +117,23 @@ class CustomerDetailsFragment : Fragment() {
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             Toast.makeText(requireContext(), "address updated successfully", Toast.LENGTH_SHORT).show()
+//                            val fragment = OrderSummeryFragment()
+//                            val bundle = Bundle()
+//                            bundle.putString("BookId", bookId)
+//                            fragment.arguments = bundle
+//                            val transaction = fragmentManager?.beginTransaction()
+//                            transaction?.replace(R.id.fragmentsContainer, fragment)?.commit()
+
+                            val appCompatActivity = context as AppCompatActivity
                             val fragment = OrderSummeryFragment()
-                            val transaction = fragmentManager?.beginTransaction()
-                            transaction?.replace(R.id.fragmentsContainer, fragment)?.commit()
+                            val bundle = Bundle()
+                            bundle.putString("BookId", bookId)
+                            fragment.arguments = bundle
+                            appCompatActivity.supportFragmentManager.beginTransaction()
+                                .replace(R.id.fragmentsContainer, fragment)
+                                .addToBackStack(null)
+                                .commit()
+
                         } else {
                             Toast.makeText(requireContext(), "Failed to update note", Toast.LENGTH_SHORT).show()
                         }

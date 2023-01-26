@@ -1,6 +1,7 @@
 package com.example.bookstore.mode
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,7 +68,11 @@ class CartItemAdapter(private val context: Context, private val cartBookList : A
 
         holder.placeOrderBtn.setOnClickListener {
             val appCompatActivity = context as AppCompatActivity
+            val bookId = cartBookList[position].bookId
             val fragment = CustomerDetailsFragment()
+            val bundle = Bundle()
+            bundle.putString("BookId", bookId)
+            fragment.arguments = bundle
             appCompatActivity.supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentsContainer, fragment)
                 .addToBackStack(null)

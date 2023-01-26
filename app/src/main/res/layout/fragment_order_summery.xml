@@ -3,13 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.OrderSummeryFragment">
+    tools:context=".view.OrderSummeryFragment"
+    android:background="@color/OS_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/TitleBarLayout"
         android:background="@color/red">
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,6 +37,202 @@
             android:layout_marginTop="12dp"/>
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bookSummery_RL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TitleBarLayout"
+        android:layout_marginTop="5dp"
+        android:background="#FBD9D4"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Book Selected"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_book_OS"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/book"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/tv_booktitle_OS"
+            android:layout_below="@+id/book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/iv_book_OS"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_authername_OS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_booktitle_OS"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/iv_book_OS"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_price_OS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_authername_OS"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/iv_book_OS"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_qty_OS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_price_OS"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@+id/iv_book_OS"
+            android:text="QTY : 1"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:id="@+id/shippingDetails_LL"
+        android:layout_below="@+id/bookSummery_RL"
+        android:orientation="vertical"
+        android:background="#FBD9D4"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/shipping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Shipping Address"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Fname_OS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:paddingStart="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email_OS"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_margin="3dp"
+            android:paddingStart="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mobileNo_OS"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_margin="3dp"
+            android:paddingStart="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/address_OS"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_margin="3dp"
+            android:paddingStart="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/city_OS"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_margin="3dp"
+            android:paddingStart="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/state_OS"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_margin="3dp"
+            android:paddingStart="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pincode_OS"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_margin="3dp"
+            android:paddingStart="10dp"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/placeOrderBtn_OS"
+        android:layout_below="@+id/shippingDetails_LL"
+        android:layout_margin="25dp"
+        android:backgroundTint="@color/red"
+        android:text="PLACE ORDER"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
+
 
 
 
