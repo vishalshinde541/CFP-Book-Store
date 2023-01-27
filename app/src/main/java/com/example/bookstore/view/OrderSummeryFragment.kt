@@ -77,6 +77,24 @@ class OrderSummeryFragment : Fragment() {
         getBookDetailsFromFirebaseAndShowOnScreen()
         getShipingDetailsFromFirebaseAndShowOnScreen()
 
+        binding.placeOrderBtnOS.setOnClickListener {
+            val appCompatActivity = context as AppCompatActivity
+            val fragment = OrderPlacedFragment()
+            val bundle = Bundle()
+            bundle.putString("BookId", bookId)
+            fragment.arguments = bundle
+            appCompatActivity.supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentsContainer, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.backBtn.setOnClickListener {
+            val fragment = CustomerDetailsFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragmentsContainer, fragment)?.commit()
+        }
+
 
         return view
     }

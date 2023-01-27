@@ -44,9 +44,17 @@
     <!-- Order Summery Fragment -->
     <string name="title_OrdersSummery">Order Summery</string>
 
+    <!-- Order Confirmed Fragment -->
+    <string name="title_Ordersplaced">Order confirmed</string>
+    <string name="orderDetails_l1">Hurray!!your order is confirmed</string>
+    <string name="orderDetails_l2">the order id is #123456 save the order id for</string>
+    <string name="orderDetails_l3">further communication...</string>
+    <string name="email">admin@bookstore.com</string>
+    <string name="contact">+91 888888888888</string>
+    <string name="address">42, 14 Main, 15th Cross, Sector 4, opp to BDA complex, Bangalore 560034</string>
+
     <!-- Id for get user shipping details -->
     <string name="shippingDetailsId">PermanentShippingAddress</string>
-
 
 
 </resources>

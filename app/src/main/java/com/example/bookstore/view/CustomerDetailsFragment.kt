@@ -117,12 +117,6 @@ class CustomerDetailsFragment : Fragment() {
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             Toast.makeText(requireContext(), "address updated successfully", Toast.LENGTH_SHORT).show()
-//                            val fragment = OrderSummeryFragment()
-//                            val bundle = Bundle()
-//                            bundle.putString("BookId", bookId)
-//                            fragment.arguments = bundle
-//                            val transaction = fragmentManager?.beginTransaction()
-//                            transaction?.replace(R.id.fragmentsContainer, fragment)?.commit()
 
                             val appCompatActivity = context as AppCompatActivity
                             val fragment = OrderSummeryFragment()

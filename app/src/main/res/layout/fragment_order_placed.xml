@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.OrderPlacedFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TitleBarLayout"
+        android:background="@color/red">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/page_title"
+            android:textColor="@color/white"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:text="@string/title_Ordersplaced"
+            android:textSize="20dp" />
+
+
+        <ImageButton
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:id="@+id/backBtn"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:layout_marginTop="12dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/orderPlaced_txt_RL"
+        android:layout_below="@id/TitleBarLayout"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderplaced_TV"
+            android:layout_marginTop="25dp"
+            android:text="Order Placed Successfully"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/orderPlaced_IV"
+            android:layout_below="@+id/orderplaced_TV"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_margin="25dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/orderplaced_logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderDetails_l1"
+            android:layout_below="@+id/orderPlaced_IV"
+            android:text="@string/orderDetails_l1"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderDetails_l2"
+            android:layout_below="@+id/orderDetails_l1"
+            android:text="@string/orderDetails_l2"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderDetails_l3"
+            android:layout_below="@+id/orderDetails_l2"
+            android:text="@string/orderDetails_l3"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+
+
+
+    </RelativeLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/orderConfirmed_LL"
+       android:layout_below="@+id/orderPlaced_txt_RL"
+       android:orientation="vertical"
+       android:layout_marginTop="25dp"
+       android:padding="4dp">
+
+       <TableLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@color/black">
+
+           <TableRow>
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Email us"
+                   android:textStyle="bold"
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:background="@color/redbackground"
+                   android:layout_marginTop="1dp"
+                   android:layout_marginStart="1dp"/>
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Contact us"
+                   android:textStyle="bold"
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:background="@color/redbackground"
+                   android:layout_marginTop="1dp"
+                   android:layout_marginLeft="1dp"
+                   android:layout_marginRight="1dp"/>
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Address"
+                   android:textStyle="bold"
+                   android:layout_weight="14"
+                   android:gravity="center"
+                   android:background="@color/redbackground"
+                   android:layout_marginTop="1dp"
+                   android:layout_marginEnd="1dp"/>
+
+           </TableRow>
+
+           <TableRow>
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="@string/email"
+                   android:textStyle="bold"
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:background="@color/white"
+                   android:layout_marginTop="1dp"
+                   android:layout_marginStart="1dp"
+                   android:layout_marginBottom="1dp"/>
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="@string/contact"
+                   android:textStyle="bold"
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:background="@color/white"
+                   android:layout_margin="1dp"/>
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/address"
+                   android:textStyle="bold"
+                   android:layout_weight="14"
+                   android:gravity="center"
+                   android:background="@color/white"
+                   android:layout_marginRight="1dp"
+                   android:layout_marginTop="1dp"
+                   android:layout_marginBottom="1dp"/>
+
+           </TableRow>
+
+       </TableLayout>
+
+   </LinearLayout>
+
+    <Button
+        android:id="@+id/ContinueShoppingBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/orderConfirmed_LL"
+        android:layout_centerInParent="true"
+        android:layout_margin="40dp"
+        android:backgroundTint="@color/red"
+        android:text="CONTINUE SHOPPING" />
+
+</RelativeLayout>
