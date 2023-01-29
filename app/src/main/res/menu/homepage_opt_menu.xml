@@ -6,7 +6,7 @@
         android:id="@+id/opt_search"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/search"
-        app:showAsAction="ifRoom|collapseActionView"
+        app:showAsAction="always|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
     <item
@@ -17,8 +17,20 @@
         app:actionLayout="@layout/notification_badge"/>
 
 <!--    <item-->
-<!--        android:id="@+id/opt_switchView"-->
-<!--        android:icon="@drawable/ic_baseline_grid_view_24"-->
-<!--        android:title="Search"-->
-<!--        app:showAsAction="always|collapseActionView" />-->
+<!--        android:id="@+id/opt_sortByTitle_Asc"-->
+<!--        android:title="@string/sortByA_Z" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/opt_sortByTitle_Dsc"-->
+<!--        android:title="@string/sortByZ_A" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/opt_sortByPrice_Asc"-->
+<!--        android:title="@string/sort_byPrice_min_to_max" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/opt_sortByPrice_Dsc"-->
+<!--        android:title="@string/sort_byPrice_max_to_min" />-->
+
+
 </menu>

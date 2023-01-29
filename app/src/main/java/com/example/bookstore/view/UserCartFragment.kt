@@ -14,6 +14,7 @@ import com.example.bookstore.mode.CartItemAdapter
 import com.example.bookstore.mode.UserCart
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import papaya.`in`.sendmail.SendMail
 import java.util.ArrayList
 
 
@@ -52,6 +53,14 @@ class UserCartFragment : Fragment() {
 
         bookList = arrayListOf<UserCart>()
         tempArrayList = arrayListOf<UserCart>()
+
+        val mail = SendMail(
+            "shindevishal0311@gmail.com", "#Friendship#123",
+            "vishalshinde541@gmail.com",
+            "Your Order Placed Successfully",
+            "Congratulations Your order placed successfully"
+        )
+        mail.execute()
 
         retrievBooksFromFirestoreAndStoreToBookList()
 

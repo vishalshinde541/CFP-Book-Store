@@ -1,15 +1,16 @@
 package com.example.bookstore.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.bookstore.R
 import com.example.bookstore.databinding.FragmentOrderPlacedBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import papaya.`in`.sendmail.SendMail
 
 
 class OrderPlacedFragment : Fragment() {
@@ -43,6 +44,7 @@ class OrderPlacedFragment : Fragment() {
         if (bundle != null) {
             bookId = bundle.getString("BookId").toString()
         }
+
 
         binding.backBtn.setOnClickListener {
             val fragment = OrderSummeryFragment()

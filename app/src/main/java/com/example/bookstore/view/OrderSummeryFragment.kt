@@ -16,6 +16,7 @@ import com.example.bookstore.R
 import com.example.bookstore.databinding.FragmentOrderSummeryBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import papaya.`in`.sendmail.SendMail
 
 class OrderSummeryFragment : Fragment() {
 
@@ -77,7 +78,15 @@ class OrderSummeryFragment : Fragment() {
         getBookDetailsFromFirebaseAndShowOnScreen()
         getShipingDetailsFromFirebaseAndShowOnScreen()
 
+//        val mail = SendMail(
+//            "shindevishal0311@gmail.com", "#Friendship#123",
+//            "vishalshinde541@gmail.com",
+//            "Your Order Placed Successfully",
+//            "Congratulations Your order placed successfully"
+//        )
+
         binding.placeOrderBtnOS.setOnClickListener {
+//            mail.execute()
             val appCompatActivity = context as AppCompatActivity
             val fragment = OrderPlacedFragment()
             val bundle = Bundle()

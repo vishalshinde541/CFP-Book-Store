@@ -81,10 +81,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
                     }
 
-
                     tempArrayList.addAll(bookList)
-
                     recyclerView.adapter = BookAdapter(requireContext(), tempArrayList)
+
+
                 }
 
             }
@@ -112,7 +112,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     val newFragment = UserNotLogedInDialogFragment()
                     newFragment.show(fragmentManager!!, "look")
                     true
-
                 }
 
             }
@@ -120,6 +119,44 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 Toast.makeText(requireContext(), "Clicked on search", Toast.LENGTH_SHORT).show()
                 true
             }
+//            R.id.opt_sortByTitle_Asc -> {
+//                tempArrayList.clear()
+//                tempArrayList.addAll(bookList)
+//                tempArrayList.sortBy {
+//                    it.bookTitle
+//                }
+//                recyclerView.adapter = BookAdapter(requireContext(), tempArrayList)
+//                true
+//            }
+//            R.id.opt_sortByTitle_Dsc -> {
+//                tempArrayList.clear()
+//                tempArrayList.addAll(bookList)
+//                tempArrayList.sortByDescending {
+//                    it.bookTitle
+//                }
+//                recyclerView.adapter = BookAdapter(requireContext(), tempArrayList)
+//                true
+//            }
+//            R.id.opt_sortByPrice_Asc -> {
+//                tempArrayList.clear()
+//                tempArrayList.addAll(bookList)
+//                tempArrayList.sortBy {
+//                    it.price
+//                }
+//                recyclerView.adapter = BookAdapter(requireContext(), tempArrayList)
+//                true
+//            }
+//            R.id.opt_sortByPrice_Dsc -> {
+//                tempArrayList.clear()
+//                tempArrayList.addAll(bookList)
+//                tempArrayList.sortByDescending {
+//                    it.price
+//                }
+//                recyclerView.adapter = BookAdapter(requireContext(), tempArrayList)
+//                true
+//            }
+
+
             else -> super.onOptionsItemSelected(item)
         }
     }

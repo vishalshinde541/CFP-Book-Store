@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.bookstore.R
 import com.example.bookstore.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import papaya.`in`.sendmail.SendMail
 
 class MainActivity : AppCompatActivity(), NavDrawerHandler {
 
@@ -29,6 +30,8 @@ class MainActivity : AppCompatActivity(), NavDrawerHandler {
 
         supportFragmentManager.beginTransaction().replace(R.id.fragmentsContainer, HomeFragment())
             .commit()
+
+
 
 //        val currentUser = fAuth.currentUser
 //        if (currentUser != null) {

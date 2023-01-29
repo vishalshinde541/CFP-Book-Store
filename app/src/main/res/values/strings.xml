@@ -32,11 +32,15 @@
     <!-- Dialog Fragment -->
     <string name="save_profileImg">click!! to save selected profile photo</string>
 
-    <!-- Fragment titel-->
+    <!-- Fragment Home-->
     <string name="home_title">Book Store</string>
     <string name="cart_title">My Cart</string>
     <string name="search">Search</string>
     <string name="cart">Cart</string>
+    <string name="sortByA_Z">Sotr By Titel A-Z</string>
+    <string name="sortByZ_A">Sotr By Titel Z-A</string>
+    <string name="sort_byPrice_max_to_min">Sort By Price Min-Max</string>
+    <string name="sort_byPrice_min_to_max">Sort By Price Max-Min</string>
 
     <!-- Customer details Fragment -->
     <string name="customerdetail_title">Shipping Details</string>
